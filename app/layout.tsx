@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Jost } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -8,10 +9,9 @@ export const metadata: Metadata = {
 };
 
 const jost = Jost({
-  subsets: ['latin', 'latin-ext', 'cyrillic'],
-  weight: ["400", "500", "600", "700"]
-})
-
+  subsets: ["latin", "latin-ext", "cyrillic"],
+  weight: ["400", "500", "600", "700"],
+});
 
 export default function RootLayout({
   children,
@@ -23,7 +23,10 @@ export default function RootLayout({
       <body
         className={`antialiased flex justify-center w-full ${jost.className}`}
       >
-        <div className="w-full max-w-[2560px]">{children}</div>
+        <div className="w-full max-w-[2560px]">
+          <Navbar />
+          {children}
+        </div>
       </body>
     </html>
   );
